@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>偶买噶，欢迎</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ==========新增进场欢迎页========== -->
+    <div class="intro-splash">
+        <div class="splash-inner">
+            <div class="splash-avatar">
+                <img src="images/touxiang.png" alt="头像">
+            </div>
+           <div class="welcome-3d">
+    <span class="letter-red">W</span>
+    <span class="letter-yellow">e</span>
+    <span class="letter-blue">l</span>
+    <span class="letter-cyan">c</span>
+    <span class="letter-blue">o</span>
+    <span class="letter-purple">m</span>
+    <span class="letter-red">e</span>
+</div>
+        </div>
+    </div>
+
+    <!-- 顶部导航栏：固定居中，6个栏目入口 -->
+    <nav class="nav-bar">
+        <a href="index.html" class="active">首页</a>
+        <a href="calendar.html">日历</a>
+        <a href="study.html">学习</a>
+        <a href="mood.html">心情</a>
+        <a href="daily.html">日常</a>
+        <a href="game.html">小游戏</a>
+    </nav>
+
+    <!-- 页面主容器：承载所有内容区块 -->
+    <div class="page-container">
+
+        <!-- 顶部横幅文字区 -->
+        <div class="card top-banner">
+            <p>如果我是pdd新用户，你还会是这个态度吗？</p>
+        </div>
+
+        <!-- 主体区域：左侧个人简介 + 右侧内容列（F型布局） -->
+        <div class="main-layout">
+
+            <!-- 左侧：个人简介栏 -->
+            <aside class="profile-card">
+                <!-- 头像 -->
+                <div class="avatar-wrap">
+                    <img src="images/touxiang.png" alt="头像">
+                </div>
+                <!-- 用户名 -->
+                <h2 class="username">奶茶酱</h2>
+                <!-- 标签云 -->
+                <div class="tags">
+                    <span class="tag">二次元</span>
+                    <span class="tag">古灵精怪</span>
+                    <span class="tag">哇咔咔</span>
+                    <span class="tag">家人</span>
+                    <span class="tag">画画</span>
+                    <span class="tag">不是吧</span>
+                </div>
+                <!-- 个人简介文字 -->
+                <div class="intro-box">
+                    <p>你好我是人</p>
+                </div>
+            </aside>
+
+            <!-- 右侧内容列 -->
+            <div class="right-column">
+
+                <!-- 第一行：浏览次数 + 音乐播放器 -->
+                <div class="row row-wider">
+                    <!-- 浏览次数卡片 -->
+                    <div class="card info-card">
+                        <p class="info-label">浏览次数：</p>
+                        <div class="info-count">0</div>
+                    </div>
+                    <!-- 音乐播放器卡片 -->
+                    <div class="card music-card">
+                        <div class="music-inner">
+                            <img class="music-cover" src="images/music00.png" alt="音乐封面">
+                            <div class="music-body">
+                                <!-- 歌曲标题 -->
+                                <div class="title-wrap">
+                                    <p class="music-title">歌曲名称</p>
+                                </div>
+                                <!-- 播放进度条 -->
+                                <input type="range" class="music-progress" min="0" max="100" value="0">
+                                <!-- 播放控制按钮 -->
+                                <div class="music-controls">
+                                    <button class="prev-btn">上一首</button>
+                                    <button class="play-btn">播放</button>
+                                    <button class="next-btn">下一首</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 音频元素（实际播放） -->
+                        <audio id="audio-player">
+                            <source src="music/得吃小曲.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- 中间文字条 -->
+                <div class="card middle-text">
+                    <p>唐笑两下老天真以为我活美了</p>
+                </div>
+
+                <!-- 第二行：日历 + 游戏 -->
+                <div class="row">
+                    <!-- 日历卡片 -->
+                    <div class="card calendar-card">
+                        <div class="calendar-header">
+                            <button class="cal-nav cal-prev" aria-label="上个月">‹</button>
+                            <span class="cal-title"></span>
+                            <button class="cal-nav cal-next" aria-label="下个月">›</button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+                        </div>
+                        <div class="calendar-days"></div>
+                    </div>
+                   <div class="card answer-book-card">
+    <h3>📖 答案之书</h3>
+    <p class="tip">心中默念你的问题，点击翻开书本</p>
+    <!-- 书本容器 -->
+    <div class="book-wrap">
+        <div class="book">
+            <div class="book-page front-page">
+                <div class="page-content cover-content">
+                    <div class="cover-circle">
+                        <p class="cover-en">The Soul's</p>
+                        <p class="cover-title">BOOK of ANSWERS</p>
+                        <p class="cover-cn">答案之书</p>
+                    </div>
+                </div>
+            </div>
+            <div class="book-page back-page">
+                <div class="page-content">
+                    <p id="answer-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="get-answer-btn">翻开答案</button>
+</div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入主脚本（标签随机色 + 音乐播放器逻辑） -->
+    <script src="js/main.js"></script>
+</body>
+</html>

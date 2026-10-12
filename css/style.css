@@ -1,0 +1,531 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url('../images/1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    font-family: "Microsoft YaHei", sans-serif;
+    padding-top: 100px;
+}
+
+/* 导航栏 */
+.nav-bar {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+}
+.nav-bar a {
+    padding: 8px 20px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    font-size: 15px;
+}
+.nav-bar a:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+.nav-bar a.active {
+    background: #4a90d9;
+    color: #fff;
+}
+
+/* 页面总容器 */
+.page-container {
+    width: 85%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 100px - 5px);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* 所有卡片统一白色40%圆角 */
+.card {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+/* 顶部文字区域 */
+.top-banner {
+    width: 100%;
+    text-align: center;
+}
+.top-banner p {
+    font-family: KaiTi, "楷体", serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* F型主体布局 */
+.main-layout {
+    display: flex;
+    gap: 28px;
+    align-items: stretch;
+    flex: 1;
+}
+
+/* ===== 左侧：个人资料卡 ===== */
+.profile-card {
+    width: 340px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.avatar-wrap {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    flex-shrink: 0;
+}
+.avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+.tag {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    color: #fff;
+}
+.intro-box {
+    flex: 1;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* 右列 */
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+.row {
+    display: flex;
+    gap: 28px;
+    flex: 1;
+}
+.row .card {
+    flex: 1;
+    text-align: center;
+}
+.row-wider {
+    margin: 0 -5px;
+}
+
+/* 中间文字条 */
+.middle-text {
+    width: 100%;
+    text-align: center;
+}
+.middle-text p {
+    font-family: KaiTi, "楷体", serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* ===== 人数模块 ===== */
+.info-card {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+}
+.info-label {
+    font-size: 20pt;
+    text-align: left;
+    padding: 5px;
+    line-height: 1.4;
+}
+.info-count {
+   flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "华文体珀", "STHupo", cursive;
+    font-size: 40pt;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* ===== 音乐模块 ===== */
+.music-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.music-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.music-cover {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: rotateDisk 12s linear infinite;
+    animation-play-state: paused;
+}
+@keyframes rotateDisk {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.music-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.title-wrap {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+.music-title {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 15px;
+}
+.music-title.scrolling {
+    animation: scrollTitle 5s linear infinite;
+}
+@keyframes scrollTitle {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+.music-progress {
+    width: 100%;
+}
+.music-controls {
+    display: flex;
+    gap: 8px;
+}
+.music-controls button {
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 5px; }
+::-webkit-scrollbar-thumb { background: #bbb; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #999; }
+* { scrollbar-width: thin; scrollbar-color: #bbb #f1f1f1; }
+
+/* 小屏适配 */
+@media (max-width: 1100px) {
+    .main-layout { flex-direction: column; }
+    .profile-card { width: 100%; }
+    .row-wider { margin: 0; }
+}
+
+/* ===== 日历 ===== */
+.calendar-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.cal-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+}
+.cal-nav {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.cal-nav:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+    width: 100%;
+}
+.cal-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 17px;
+    border-radius: 6px;
+    cursor: default;
+    transition: background 0.2s;
+}
+.cal-day:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+.cal-day.other-month {
+    color: rgba(0, 0, 0, 0.6);
+}
+.cal-day.today {
+    background: #4a90d9;
+    color: #fff;
+    font-weight: bold;
+}
+.cal-day.weekend {
+    color: #e74c3c;
+}
+.cal-day.today.weekend {
+    color: #fff;
+}
+
+/* ==========答案之书｜原版紫封面风格 + 3D翻页========== */
+.answer-book-card{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+.answer-book-card h3{
+    font-size:18px;
+    color:#fff;
+    text-align:center;
+}
+.answer-book-card .tip{
+    font-size:13px;
+    color:#e2d9e9;
+    text-align:center;
+}
+
+.book-wrap{
+    display:flex;
+    justify-content:center;
+    perspective:1200px;
+}
+.book{
+    width:220px;
+    height:280px;
+    position:relative;
+}
+.book-page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    background:#382b47; /* 和原图封面深紫色一致 */
+    border-radius:0 8px 8px 0;
+    box-shadow: 2px 3px 12px rgba(0,0,0,0.35);
+}
+.front-page{
+    z-index:2;
+    border-radius:8px;
+}
+/* 翻页动画 */
+.book-page.flip{
+    animation: pageFlip 1.2s ease-in-out forwards;
+}
+
+@keyframes pageFlip {
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(-180deg);
+    }
+}
+
+.page-content{
+    width:100%;
+    height:100%;
+    padding:24px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+/* 封面文字样式，还原原版排版 */
+.cover-content{
+    flex-direction:column;
+}
+.cover-circle{
+    text-align:center;
+    color:#e8d8e4;
+}
+.cover-en{
+    font-size:14px;
+    margin:0;
+    opacity:0.85;
+}
+.cover-title{
+    font-size:26px;
+    letter-spacing:2px;
+    margin:4px 0;
+}
+.cover-cn{
+    font-size:24px;
+    margin:0;
+}
+#answer-text{
+    font-size:16px;
+    line-height:1.9;
+    color:#f0e6f2;
+    text-align:center;
+}
+
+#get-answer-btn{
+    border:none;
+    border-radius:10px;
+    padding:10px;
+    background:#6b4f88;
+    color:#fff;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.2s;
+}
+#get-answer-btn:hover{
+    background:#523b6b;
+}
+
+/* ==========进场欢迎页：90pt 彩色 Welcome ========== */
+
+.intro-splash {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("../images/jin.webp") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 2s ease-in-out;
+}
+
+.intro-splash.slide-up {
+    transform: translateY(-100%);
+}
+
+.splash-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.splash-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255, 255, 255, 0.65);
+}
+
+.splash-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome-3d {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    perspective: 800px;
+}
+
+.welcome-3d span {
+    font-size: 90pt;
+    font-weight: 900;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transform: translateZ(10px);
+    transition: transform 0.25s ease-out;
+    cursor: default;
+    text-shadow:
+        2px 2px 0 rgba(0, 0, 0, 0.25),
+        4px 4px 10px rgba(0, 0, 0, 0.35);
+    letter-spacing: 2px;
+}
+
+/* 儿童感单字母配色：红、黄、蓝、青、蓝、紫 */
+.letter-red    { background-image: linear-gradient(180deg, #ff4d4d, #c1272d); }
+.letter-yellow { background-image: linear-gradient(180deg, #ffdd33, #f5a623); }
+.letter-blue   { background-image: linear-gradient(180deg, #4da6ff, #165DFF); }
+.letter-cyan   { background-image: linear-gradient(180deg, #33e0ed, #0097a7); }
+.letter-purple { background-image: linear-gradient(180deg, #b066ff, #6a1b9a); }
+
+/* 鼠标滑过单个字母上升 */
+.welcome-3d span:hover {
+    transform: translateY(-22px) translateZ(30px) scale(1.08);
+}
+
